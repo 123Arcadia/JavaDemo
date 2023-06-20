@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BalancedBinaryTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BalancedBinaryTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn110" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BalancedBinaryTree.java" />
+              <option name="titleSlug" value="balanced-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreeInorderTraversal.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BinaryTreeInorderTraversal.md" />
+              <option name="frontendQuestionId" value="leetcode.cn94" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreeInorderTraversal.java" />
+              <option name="titleSlug" value="binary-tree-inorder-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreeLevelOrderTraversal.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BinaryTreeLevelOrderTraversal.md" />
+              <option name="frontendQuestionId" value="leetcode.cn102" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreeLevelOrderTraversal.java" />
+              <option name="titleSlug" value="binary-tree-level-order-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePaths.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BinaryTreePaths.md" />
+              <option name="frontendQuestionId" value="leetcode.cn257" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePaths.java" />
+              <option name="titleSlug" value="binary-tree-paths" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePostorderTraversal.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BinaryTreePostorderTraversal.md" />
+              <option name="frontendQuestionId" value="leetcode.cn145" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePostorderTraversal.java" />
+              <option name="titleSlug" value="binary-tree-postorder-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePreorderTraversal.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/BinaryTreePreorderTraversal.md" />
+              <option name="frontendQuestionId" value="leetcode.cn144" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/BinaryTreePreorderTraversal.java" />
+              <option name="titleSlug" value="binary-tree-preorder-traversal" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountCompleteTreeNodes.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/CountCompleteTreeNodes.md" />
+              <option name="frontendQuestionId" value="leetcode.cn222" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountCompleteTreeNodes.java" />
+              <option name="titleSlug" value="count-complete-tree-nodes" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountSortedVowelStrings.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/CountSortedVowelStrings.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1641" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountSortedVowelStrings.java" />
+              <option name="titleSlug" value="count-sorted-vowel-strings" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountSubarraysWithMedianK.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/CountSubarraysWithMedianK.md" />
+              <option name="frontendQuestionId" value="leetcode.cn2488" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/CountSubarraysWithMedianK.java" />
+              <option name="titleSlug" value="count-subarrays-with-median-k" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/EvaluateReversePolishNotation.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/EvaluateReversePolishNotation.md" />
+              <option name="frontendQuestionId" value="leetcode.cn150" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/EvaluateReversePolishNotation.java" />
+              <option name="titleSlug" value="evaluate-reverse-polish-notation" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindBottomLeftTreeValue.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/FindBottomLeftTreeValue.md" />
+              <option name="frontendQuestionId" value="leetcode.cn513" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindBottomLeftTreeValue.java" />
+              <option name="titleSlug" value="find-bottom-left-tree-value" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindTheIndexOfTheFirstOccurrenceInAString.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/FindTheIndexOfTheFirstOccurrenceInAString.md" />
+              <option name="frontendQuestionId" value="leetcode.cn28" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindTheIndexOfTheFirstOccurrenceInAString.java" />
+              <option name="titleSlug" value="find-the-index-of-the-first-occurrence-in-a-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindTheShortestSuperstring.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/FindTheShortestSuperstring.md" />
+              <option name="frontendQuestionId" value="leetcode.cn943" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FindTheShortestSuperstring.java" />
+              <option name="titleSlug" value="find-the-shortest-superstring" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FourSumIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/FourSumIi.md" />
+              <option name="frontendQuestionId" value="leetcode.cn454" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/FourSumIi.java" />
+              <option name="titleSlug" value="4sum-ii" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/HappyNumber.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/HappyNumber.md" />
+              <option name="frontendQuestionId" value="leetcode.cn202" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/HappyNumber.java" />
+              <option name="titleSlug" value="happy-number" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ImplementQueueUsingStacks.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/ImplementQueueUsingStacks.md" />
+              <option name="frontendQuestionId" value="leetcode.cn232" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ImplementQueueUsingStacks.java" />
+              <option name="titleSlug" value="implement-queue-using-stacks" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ImplementStackUsingQueues.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/ImplementStackUsingQueues.md" />
+              <option name="frontendQuestionId" value="leetcode.cn225" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ImplementStackUsingQueues.java" />
+              <option name="titleSlug" value="implement-stack-using-queues" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/InvertBinaryTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/InvertBinaryTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn226" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/InvertBinaryTree.java" />
+              <option name="titleSlug" value="invert-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/MinimumDepthOfBinaryTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/MinimumDepthOfBinaryTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn111" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/MinimumDepthOfBinaryTree.java" />
+              <option name="titleSlug" value="minimum-depth-of-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveAllAdjacentDuplicatesInString.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/RemoveAllAdjacentDuplicatesInString.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1047" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveAllAdjacentDuplicatesInString.java" />
+              <option name="titleSlug" value="remove-all-adjacent-duplicates-in-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveDuplicatesFromSortedList.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/RemoveDuplicatesFromSortedList.md" />
+              <option name="frontendQuestionId" value="leetcode.cn83" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveDuplicatesFromSortedList.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-list" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveDuplicatesFromSortedListIi.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/RemoveDuplicatesFromSortedListIi.md" />
+              <option name="frontendQuestionId" value="leetcode.cn82" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/RemoveDuplicatesFromSortedListIi.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-list-ii" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SameTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/SameTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn100" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SameTree.java" />
+              <option name="titleSlug" value="same-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SlidingWindowMaximum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/SlidingWindowMaximum.md" />
+              <option name="frontendQuestionId" value="leetcode.cn239" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SlidingWindowMaximum.java" />
+              <option name="titleSlug" value="sliding-window-maximum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SubtreeOfAnotherTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/SubtreeOfAnotherTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn572" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SubtreeOfAnotherTree.java" />
+              <option name="titleSlug" value="subtree-of-another-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SymmetricTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/SymmetricTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn101" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/SymmetricTree.java" />
+              <option name="titleSlug" value="symmetric-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ThreeSum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/ThreeSum.md" />
+              <option name="frontendQuestionId" value="leetcode.cn15" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ThreeSum.java" />
+              <option name="titleSlug" value="3sum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/TopKFrequentElements.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/TopKFrequentElements.md" />
+              <option name="frontendQuestionId" value="leetcode.cn347" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/TopKFrequentElements.java" />
+              <option name="titleSlug" value="top-k-frequent-elements" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/TwoSum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/TwoSum.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/TwoSum.java" />
+              <option name="titleSlug" value="two-sum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ValidParentheses.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/ValidParentheses.md" />
+              <option name="frontendQuestionId" value="leetcode.cn20" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/ValidParentheses.java" />
+              <option name="titleSlug" value="valid-parentheses" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/WidestVerticalAreaBetweenTwoPointsContainingNoPoints.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/doc/content/WidestVerticalAreaBetweenTwoPointsContainingNoPoints.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1637" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="E:/leetCodeForIdeaPlugin/leetcode/editor/cn/WidestVerticalAreaBetweenTwoPointsContainingNoPoints.java" />
+              <option name="titleSlug" value="widest-vertical-area-between-two-points-containing-no-points" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

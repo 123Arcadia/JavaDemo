@@ -1,0 +1,10 @@
+key,value
+socket,10.128.53.59:11115
+yard_webservice,10.128.10.18:2020
+ctos_webservice,10.128.53.59:3003
+USER_ID,CMHIT
+PASSWORD,1
+log_prefix,010000000000000000001'
+log_msg,TRUCKQUEUE/b3abf2e5a4845b9181368f28a245f43a
+log_receipt_success,6||TRUCKQUEUE System Login success!
+heartbeat_prefix,010000000000000000000'
