@@ -2,10 +2,7 @@ package Collection.List;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -78,4 +75,51 @@ public class List_Init {
         System.out.println("map = " + map); // map = {Hello=World, John=Doe}
     }
 
+
+    @Test
+    public void test_shuffle(){
+        List<Integer> list = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < 23; i++) {
+            list.add(i);
+            map.put(i, i + 1);
+        }
+        System.out.println("map = " + map);
+        System.out.println("list = " + list);
+        Set<Integer> set = map.keySet();
+        System.out.println("set = " + set);
+        List<Integer> listmap = new ArrayList<>(set);
+        shuffle(listmap);
+        System.out.println("listmap = " + listmap);
+
+        Collections.sort(listmap, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1, o2);
+            }
+        });
+        System.out.println("listmap sort = " + listmap);
+
+        shuffle(listmap);
+        HashMap<Integer, Integer> mapClone = map;
+
+        for (Integer i : listmap) {
+            System.out.println(i + ", " + map.get(i));
+        }
+        System.out.println("map = " + map);
+
+    }
+
+
+    public <T> void shuffle(List<T> list) {
+        int size = list.size();
+        Random random = new Random();
+
+        for(int i = 0; i < size; i++) {
+
+            int randomPos = random.nextInt(size);
+
+            Collections.swap(list, i, randomPos);
+        }
+    }
 }
