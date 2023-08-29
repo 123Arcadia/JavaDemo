@@ -1,8 +1,8 @@
 package TestThread.thread01.ThreadPool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import org.junit.Test;
+
+import java.util.concurrent.*;
 
 class Number implements Runnable {
     @Override
@@ -38,6 +38,31 @@ public class ThreadPool {
         service.execute(new Number());
         service.execute(new Number1());
 
+//        service.shutdown();
+
+        /**
+         * 或者
+         */
+//        ExecutorService DEVICE_MSG_THREAD_POOL = new ThreadPoolExecutor(30, 30, 30, TimeUnit.SECONDS,
+//                new ArrayBlockingQueue<>(100));
+    }
+
+    @Test
+    public void executorService() throws InterruptedException {
+        ExecutorService service = Executors.newSingleThreadExecutor();
+        service.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("----------------");
+                System.out.println(Thread.currentThread().getName() + "====" + Thread.currentThread().getId());
+                //pool-1-thread-1-24
+            }
+        });
+//        service.execute(() -> {
+//            System.out.println(Thread.currentThread().getName() + "-" + Thread.currentThread().getId());
+//
+//        });
+        Thread.sleep(1000); // 防止程序执行完，thread还没有完便强制结束
         service.shutdown();
     }
 }

@@ -1,11 +1,12 @@
 package ClassLoaderTest;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.Test;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class loadertest {
 
@@ -69,7 +70,70 @@ public class loadertest {
         List<Integer> list1 = new ArrayList<>();
         list1.add(1);
         System.out.println("list1 = " + list1);
+
+        System.out.println(Math.ceil((double) 72 / 22));
+
+        int o = 0;
+        for (int i = 1; i <= 91; i++) {
+            if (i % 2 != 1) {
+                o ++;
+            }
+        }
+        System.out.println("o = " + o);
     }
+
+    @Test
+    public void testStu() {
+        stu zcw1 = new stu("zcw1",16 );
+        stu zcw2 = new stu("zcw2", 15);
+        List<stu> list =new ArrayList<>();
+        list.add(zcw1);
+        list.add(zcw2);
+        System.out.println(list);
+//        System.out.println(zcw1.compareTo(zcw2));
+
+        Collections.sort(list, (o1, o2) -> o1.age.compareTo(o2.age));
+        System.out.println(list);
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    class stu{
+        private String name;
+        private Integer age;
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            stu stu = (stu) o;
+
+            if (!name.equals(stu.name)) return false;
+            return age.equals(stu.age);
+        }
+
+
+        @Override
+        public int hashCode() {
+            int result = name.hashCode();
+            result = 31 * result + age.hashCode();
+            return result;
+        }
+
+//        @Override
+//        public int compareTo(stu o) {
+//            if (this.age < o.age) {
+//                return -1;
+//            } else if (this.age > o.age) {
+//                return 1;
+//            }
+//            return 0;
+//        }
+    }
+
+
 
 
 }

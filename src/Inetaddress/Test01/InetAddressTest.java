@@ -74,6 +74,20 @@ public class InetAddressTest {
             }
         }
         System.out.println("list1 = " + list1);
+
+
+    }
+
+
+    @Test
+    public void test() {
+        System.out.println("---");
+        Boolean s = true;
+        if (s == Boolean.TRUE) {
+            System.out.println("s = " + s);
+        } else {
+            System.out.println(false);
+        }
     }
 }
 
