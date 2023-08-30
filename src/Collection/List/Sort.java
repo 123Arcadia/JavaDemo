@@ -33,7 +33,10 @@ public class Sort {
 
 //        list.remove(new stu("zcw3", 3));
         System.out.println("list = " + list);
+
+
     }
+
 
 }
 
