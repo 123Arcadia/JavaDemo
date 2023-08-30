@@ -391,6 +391,17 @@ public class FileStreamTest {
         }
         System.out.println("map = " + map);
 
+        ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(0, 0));
+        System.out.println("arrayList = " + arrayList);
+        arrayList.set(0, 9);
+        System.out.println("arrayList = " + arrayList);
+        int count=0;
+        for (int i = 157; i <= 189; i++) {
+            if (i % 2!=0) {
+                count++;
+            }
+        } // 17
+        System.out.println(count);
     }
 
 
