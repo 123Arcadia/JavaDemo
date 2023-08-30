@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-public class MapTest01 {
+public class MapSort {
 
     @Test
     public void test01() {
@@ -82,19 +82,27 @@ public class MapTest01 {
     }
 
     @Test
-    public void test_Entry() {
-        Map<String , Integer> map = new HashMap();
+    public void test_Entry_sort() {
+        Map<Integer , Integer> map = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return -Integer.compare(o1, o2);
+            }
+        });
 
-        map.put("zcw", 2);
-        map.put("zcw01", 3);
-        //map.put(4, "zcw01"); //无效
-        map.put("zcw03", 4);
-        map.put("zcw03", 66);
-        map.put("zcw04", 5);
-        map.put("zcw05", 6);
-        map.put("zcw06", 7);
+        map.put(2, 2);
+        map.put( 3, 3);
+        //map.puw01"); //无效
+        map.put( 4,4);
+        map.put( 66,1);
+        map.put( 5,5);
+        map.put( 6,6);
+        map.put( 7,7);
 
         Set entrySet = map.entrySet();
+        List<Integer> list = new ArrayList<>(entrySet);
+        System.out.println("list = " + list);
+        System.out.println(list.get(0));
 
     }
 
