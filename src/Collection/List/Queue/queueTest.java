@@ -9,6 +9,8 @@ public class queueTest {
     public void set() {
         /**
          * 大到小
+         *
+         * 小于 < : -1 -> 升序
          */
         PriorityQueue<int[]> queue = new PriorityQueue<>((x, y) -> x[0] > y[0] ? x[0] - y[0] : x[1] - y[1]);
         queue.add(new int[]{4, 4});
@@ -84,13 +86,20 @@ public class queueTest {
         //9-1-
     }
 
+    /**
+     * removeElement :
+     */
     @Test
     public void Stack() {
         Stack<Integer> stk = new Stack<>();
         List<Integer> list = new ArrayList<>(Arrays.asList(1,5,4,6));
         stk.addAll(list);
         System.out.println(stk.peek());
+        //6
         System.out.println(stk.firstElement());
+        //1
         stk.removeElement(0);
+        System.out.println("stk = " + stk);
+        //stk = [1, 5, 4, 6]
     }
 }

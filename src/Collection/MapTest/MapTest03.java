@@ -2,10 +2,7 @@ package Collection.MapTest;
 
 import org.junit.Test;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MapTest03 {
@@ -21,6 +18,10 @@ public class MapTest03 {
         for (Object o : set) {
             System.out.print(o + " ");
         }
+
+        ArrayList<String> list = new ArrayList<>(map.values());
+        System.out.println("list = " + list);
+
         // 1 2 3 4 
         System.out.println("==========");
 
@@ -67,6 +68,11 @@ public class MapTest03 {
         System.out.println("y = " + y);
         //x = 2
         //y = 2
+        System.out.println("map = " + map);
+        map.remove(4);
+        System.out.println("map = " + map);
+        //map = {1=zz, 2=cz, 3=cz}
+        //map = {1=zz, 2=cz, 3=cz}
     }
 
     /**
@@ -75,5 +81,55 @@ public class MapTest03 {
     @Test
     public void ConcurrentHasMap_Test() {
         ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>();
+    }
+
+
+    @Test
+    public void  test() {
+        Map<String, List<Integer>> map = new HashMap<>();
+        map.put("c", new ArrayList<>(Arrays.asList(3,4,5)));
+        System.out.println("map = " + map);
+        List<Integer> list = map.get("c");
+        list.set(0, 999);
+        System.out.println("map = " + map);
+
+        String str = "zcw,hji";
+        System.out.println("str = " + str.contains("hji"));
+        String[] split = str.split("-");
+        System.out.println("split = " + Arrays.toString(split));
+
+        String str1 = "hji";
+        if (str.contains(str1)) {
+            int index = str.indexOf(str1);
+            System.out.println("index = " + index);
+
+        }
+
+        double dou = Double.MAX_VALUE;
+        double v1 = dou / 0.0;
+        double v2 = 0.0 / 0.0;
+        System.out.println(dou / 0.0);
+        System.out.println(-v1);
+        //Infinity
+        //-Infinity
+
+        System.out.println(v1 > 100);
+        System.out.println(v1 == Double.MAX_VALUE); // false
+        System.out.println(-v1 > -100);
+        //true
+        //false
+        System.out.println("v2 = " + v2); // v2 = NaN
+
+        ArrayList<Double> res = null;
+        System.out.println("res = " + res);
+    }
+
+    public ArrayList<Double> check(ArrayList<Double> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == 99) {
+                list.set(i, 0.001);
+            }
+        }
+        return list;
     }
 }

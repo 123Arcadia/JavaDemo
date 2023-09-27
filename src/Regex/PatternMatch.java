@@ -34,4 +34,31 @@ public class PatternMatch {
         System.out.println("购物小票中的商品种类：" + number + "种");
         System.out.println("购物小票中的价格总额：" + sum + "元");
     }
+
+    /**
+     * 使用正则： 小写 -> 大写
+     */
+    @Test
+    public void test01() {
+        String name = "zcw_name";
+        if (name.contains("_")) {
+
+
+            Pattern pattern = Pattern.compile("([A-Za-z\\\\d]+)(_)?");
+            name = name.toLowerCase();
+            Matcher matcher = pattern.matcher(name);
+
+            System.out.println(matcher);
+            StringBuffer sb = new StringBuffer();
+            while (matcher.find()) {
+
+                System.out.println("matcher.group() = " + matcher.group());
+                matcher.appendReplacement(sb, matcher.group(1).toUpperCase());
+                System.out.println(matcher.group(1));
+                System.out.println(matcher.groupCount());
+            }
+            matcher.appendTail(sb);
+            System.out.println("sb.toString() = " + sb.toString()); // sb.toString() = ZCWNAME
+        }
+    }
 }

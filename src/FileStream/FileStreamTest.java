@@ -370,6 +370,8 @@ public class FileStreamTest {
 
         Set<Map.Entry<String, List<Integer>>> entrySet = map.entrySet();
         ArrayList<Map.Entry<String, List<Integer>>> list = new ArrayList<>(entrySet);
+
+
         Collections.sort(list, new Comparator<Map.Entry<String, List<Integer>>>() {
             @Override
             public int compare(Map.Entry<String, List<Integer>> o1, Map.Entry<String, List<Integer>> o2) {
@@ -396,12 +398,13 @@ public class FileStreamTest {
         arrayList.set(0, 9);
         System.out.println("arrayList = " + arrayList);
         int count=0;
-        for (int i = 157; i <= 189; i++) {
+        for (int i = 59; i <=101; i++) {
             if (i % 2!=0) {
                 count++;
             }
         } // 17
         System.out.println(count);
+        System.out.println(count*22);
     }
 
 

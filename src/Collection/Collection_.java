@@ -1,5 +1,7 @@
 package Collection;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 import java.util.*;
@@ -106,6 +108,44 @@ public class Collection_ {
         collection.add(2);
         collection.add(99);
         System.out.println("collection = " + collection.spliterator());
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(null, 1, 23, null));
+        System.out.println("list = " + list);
+
+
+        @Data
+        @AllArgsConstructor
+        class stu {
+            String name;
+            int age;
+        }
+        HashSet<String> set = new HashSet<>();
+        stu stu1 = new stu("zcw1", 21);
+        stu stu2 = new stu("zcw2", 12);
+        stu stu3 = new stu("zcw3", 2);
+        stu stu4 = new stu("zcw4", 44);
+
+        set.add(stu1.name);
+        set.add(stu2.name);
+        System.out.println("set = " + set);
+        list.isEmpty();
+
+        List<stu> stuList = new ArrayList<>();
+        stuList.add(stu1);
+        stuList.add(stu2);
+        Collections.sort(stuList, new Comparator<stu>() {
+            @Override
+            public int compare(stu o1, stu o2) {
+                return Integer.compare(o1.age,o2.age);
+            }
+        });
+        /**
+         * 只会排序之前add的元素
+         */
+        stuList.add(stu3);
+        stuList.add(stu4);
+        System.out.println("stuList = " + stuList);
+
 
     }
 

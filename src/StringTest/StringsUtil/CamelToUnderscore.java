@@ -1,12 +1,15 @@
-package CamelToUnderscore;
+package StringTest.StringsUtil;
 
 import org.junit.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class test01 {
+public class CamelToUnderscore {
 
+    /**
+     * 使用正则： 小写 -> 大写
+     */
     @Test
     public void test01() {
         String name = "zcw_name";
@@ -32,6 +35,9 @@ public class test01 {
     }
 
 
+    /**
+     * 使用upper华为大写
+     */
     @Test
     public void upper() {
         String str = "zcw";
@@ -43,10 +49,13 @@ public class test01 {
 
         byte[] bt = {95, 96, 97};
         System.out.println(new String(bt)); // "_ ` a"
-        System.out.println(String.valueOf((byte) (c - 32)));
+        System.out.println(String.valueOf((byte) (c - 32))); // 65
 
         System.out.println(0x0f0);
+        //240
         System.out.println(0x0f);
+        //15
+        System.out.println(0x0f000000);
     }
 
     /**

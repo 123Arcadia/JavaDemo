@@ -26,8 +26,10 @@ public class DateTest {
          */
         Date d1 = new Date();
         System.out.println("date = " + d1); // date = Tue Mar 07 23:09:38 CST 2023
+        //date = Thu Sep 07 08:59:09 CST 2023
         Date d2 = new Date();
-        System.out.println((d2.getTime() - d1.getTime() / 1000 / 3600 / 24) );
+        System.out.println((d2.getTime() - d1.getTime() )/ 1000 / 3600 / 24 );
+        //0
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd ,  kk:mm:ss E");
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd ,  hh:mm:ss E");
@@ -35,6 +37,8 @@ public class DateTest {
         String format1 = simpleDateFormat1.format(d1);
         System.out.println("Date : " + format);
         System.out.println("Date : " + format1);
+        //Date : 2023-09-07 ,  08:59:09 周四
+        //Date : 2023-09-07 ,  08:59:09 周四
 
         SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String s1 = "2203-03-07 11:18:57";
@@ -50,6 +54,7 @@ public class DateTest {
          */
         LocalTime time = LocalTime.now().withNano(0);
         System.out.println(String.format("time format : %s", time));
+        //time format : 09:00:59
 
         //format yyyy-MM-dd HH:mm:ss
         LocalDateTime dateTime = LocalDateTime.now();
@@ -69,6 +74,7 @@ public class DateTest {
 
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SS");
         System.out.println(sdf.format(LocalDateTime.now()));
+        //2023-09-07 09:00:59:76
         // yyyy-MM-dd HH:mm:ss
 
 
