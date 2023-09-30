@@ -118,6 +118,35 @@ public class FileStreamTest {
 
     }
 
+
+    /**
+     * 获取路径
+     * getPath: 以构造路径作为返回值。
+     * getAbsolutePath: 以当前路径 + 构造路径作为返回值
+     * getCanonicalPath: 以全路径作为返回值（如果构造路径包含.或..，会进行处理）
+     * @throws IOException
+     */
+    @Test
+    public void test_FilePath() throws IOException {
+        File file1 = new File(".\\hellozcw.txt");
+        File file2 = new File("D:\\javaProject\\javaTesting\\src\\FileStream\\hellozcw.txt");
+        System.out.println("-----默认相对路径：取得路径不同------");
+        System.out.println(file1.getPath());
+        System.out.println(file1.getAbsolutePath());
+        System.out.println(file1.getCanonicalPath());
+        //.\hellozcw.txt
+        //D:\javaProject\javaTesting\.\hellozcw.txt
+        //D:\javaProject\javaTesting\hellozcw.txt
+        System.out.println("-----默认绝对路径:取得路径相同------");
+        System.out.println(file2.getPath());
+        System.out.println(file2.getAbsolutePath());
+        System.out.println(file2.getCanonicalPath());
+        //D:\javaProject\javaTesting\src\FileStream\hellozcw.txt
+        //D:\javaProject\javaTesting\src\FileStream\hellozcw.txt
+        //D:\javaProject\javaTesting\src\FileStream\hellozcw.txt
+    }
+
+
     @Test
     public void testFileWriterTest01 () throws IOException {
 
@@ -135,6 +164,10 @@ public class FileStreamTest {
             fr.close();
 
     }
+
+
+
+
 
     /**
      * FileWrite(file, [boolean])
@@ -427,5 +460,7 @@ public class FileStreamTest {
             return result;
         }
     }
+
+
 
 }
