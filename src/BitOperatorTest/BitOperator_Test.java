@@ -120,6 +120,22 @@ public class BitOperator_Test {
         System.out.println("y = " + y); // 4
 
     }
+    /**
+     * x & -x : 得到两个数最低位的1的位数(从右向左，从1开始算起)
+     */
+    @Test
+    public void tets_bitop() {
+        int x = 10;
+        System.out.println("x = " + x +"->"+Integer.toBinaryString(x));
+        System.out.println("-x = " + (-x) +"->"+Integer.toBinaryString(-x));
+        System.out.println(x & -x);
+        //x = 5->101
+        //-x = -5->11111111111111111111111111111011
+        //1
 
+        //x = 10->1010
+        //-x = -10->11111111111111111111111111110110
+        //2
+    }
 
 }
