@@ -149,7 +149,6 @@ public class FileStreamTest {
 
     @Test
     public void testFileWriterTest01 () throws IOException {
-
         File file = new File("D:\\javaProject\\javaTesting\\src\\FileStream\\hello.txt");
         FileReader fr = new FileReader(file);
 
@@ -162,7 +161,7 @@ public class FileStreamTest {
         }
         if (fr != null)
             fr.close();
-
+        //h e l l o w o r l d 1 2 3 张 晨 伟
     }
 
 

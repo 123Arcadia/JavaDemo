@@ -3,7 +3,6 @@ package Collection.MapTest;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MapTest03 {
     @Test
@@ -79,31 +78,15 @@ public class MapTest03 {
      * ConcurrentHashMap
      */
     @Test
-    public void ConcurrentHasMap_Test() {
-        ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>();
+    public void sum() {
+
+        List<Integer> list = new ArrayList<>(Arrays.asList());
+
     }
 
 
     @Test
     public void  test() {
-        Map<String, List<Integer>> map = new HashMap<>();
-        map.put("c", new ArrayList<>(Arrays.asList(3,4,5)));
-        System.out.println("map = " + map);
-        List<Integer> list = map.get("c");
-        list.set(0, 999);
-        System.out.println("map = " + map);
-
-        String str = "zcw,hji";
-        System.out.println("str = " + str.contains("hji"));
-        String[] split = str.split("-");
-        System.out.println("split = " + Arrays.toString(split));
-
-        String str1 = "hji";
-        if (str.contains(str1)) {
-            int index = str.indexOf(str1);
-            System.out.println("index = " + index);
-
-        }
 
         double dou = Double.MAX_VALUE;
         double v1 = dou / 0.0;
@@ -124,12 +107,35 @@ public class MapTest03 {
         System.out.println("res = " + res);
     }
 
-    public ArrayList<Double> check(ArrayList<Double> list) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == 99) {
-                list.set(i, 0.001);
+
+
+    private int getNum(int n) {
+        int v = 0;
+        while (n != 0) {
+            if ((n & 1) !=0) {
+                v++;
+            }
+            n >>= 1;
+        }
+        return v;
+    }
+
+    @Test
+    public void test1() {
+//        int num = getNum(4294967293);
+        System.out.println(Math.pow(2,31));
+//        System.out.println("num = " + num);
+//        int n = 4294967293;
+        int n = 111;
+        String s = String.valueOf(n);
+        int v = 0 ;
+        for (char ch : s.toCharArray()) {
+            if (ch == '1') {
+                v++;
             }
         }
-        return list;
+        return ;
     }
+
+
 }
