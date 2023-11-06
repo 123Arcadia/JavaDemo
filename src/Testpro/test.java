@@ -9,27 +9,65 @@ import java.util.*;
 public class test {
     @Test
     public void test() {
-        int x = 50;
-        int cap = 20, num = 0;
-        while (x > 0) {
-            num++;
-            x -= cap;
+        // 离散：暂定100， 创新设计：80
+        double[] score = {67,88,90,86,70,78,82, 68, 84, 82, 98, 85, 100,82, 80};
+        System.out.println(Arrays.toString(score));
+        double[] credit = {1,2,1.5,1.5,1,2,2, 1, 3, 2, 2, 2, 2,2, 2};
+        System.out.println(Arrays.toString(credit) + ", size = " + credit.length);
+        double weightedSum = 0;
+        double creditSum = 0;
+        for (int i = 0; i < credit.length; i++) {
+            creditSum += credit[i];
         }
-        System.out.println("num = " + num);
+        System.out.println("学分总和：" + creditSum);
+        for (int i = 0; i < score.length; i++) {
+            weightedSum += ((score[i] * credit[i]) / creditSum);
+        }
+        System.out.println("成绩加权平均分：" + weightedSum);
+        System.out.println("课程成绩:" + Math.max((weightedSum - 80)*2*1, 0));
+        //学分总和：27.0
+        //成绩加权平均分：84.11111111111111
+        //课程成绩:8.222222222222229
 
-        Map<String, Map<Integer, Integer>> map =  new HashMap<>();
-        Map<Integer, Integer> map1=  new HashMap<>();
-        Map<Integer, Integer> map2=  new HashMap<>();
-        map1.put(1, 3);
-        map1.put(3, 4);
-        map.put("1", map1);
-        map2.put(2, 9);
-        map2.put(4, 9);
-        map.put("1", map2);
+    }
 
-        System.out.println("map1 = " + map1);
-        System.out.println("map2 = " + map2);
-        System.out.println("map = " + map);
+
+
+    @Test
+    public void dupicate() {
+        String str = "<node code=\"1001\" depth=\"1\" fringe=\"false\" relaNodes=\"false\" shelf_pose=\"\" tagid=\"\" tier=\"1\" turn=\"false\" type=\"LANE\" x=\"1001.000000\" xb=\"0\" y=\"1001.000000\" yb=\"0\" z=\"0.000000\"> </node>\n";
+        for (int i = 0; i < 420; i++) {
+            System.out.print(str);
+        }
+    }
+
+    /**
+     * 都是地址：引用
+     */
+    @Test
+    public void test_ListCorr() {
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,4,4));
+        List<Integer> list2 = list1;
+        System.out.println(list2 == list1);
+        list2.set(0, 999);
+        System.out.println("list1 = " + list1);
+        System.out.println("list2 = " + list2);
+        //true
+        //list1 = [999, 2, 4, 4]
+        //list2 = [999, 2, 4, 4]
+        System.out.println("---------------");
+        HashMap<String, Integer> nameForAge = new HashMap<>();
+        nameForAge.put("zcw1", 11);
+        nameForAge.put("zcw2", 12);
+        nameForAge.put("zcw3", 13);
+        Set<String> setName = nameForAge.keySet();
+        for(String str : setName) {
+            if ("zcw1".equals(str)) {
+                nameForAge.remove(str);
+            }
+        }
+        System.out.println("nameForAge = " + nameForAge);
+        System.out.println("nameForAge = " + nameForAge.keySet());
     }
 
     @Test
