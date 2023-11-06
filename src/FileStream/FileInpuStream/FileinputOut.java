@@ -12,7 +12,7 @@ public class FileinputOut {
         try {
             File file = new File("D:\\javaProject\\javaTesting\\src\\FileStream\\FileInpuStream\\helloin.txt");
             fin = new FileInputStream(file);
-
+            System.out.println("file.length() = " + file.length()); // file.length() = 65
             byte[] buf = new byte[5];
             int len;
             while ((len = fin.read(buf)) != -1) {
@@ -204,7 +204,7 @@ public class FileinputOut {
         int len;
         while ((len = isr.read(buf)) != -1) {
             //String str = new String(buf, 0, len);
-            isw.write(buf, 0 ,len);
+            isw.write(buf, 0, len);
             //System.out.println("str = " + str + "==");
 
         }
@@ -253,7 +253,7 @@ public class FileinputOut {
     }
 
     @Test
-    public void test(){
+    public void test() {
         ObjectOutputStream oos = null;
         try {
             //创造流
@@ -266,7 +266,7 @@ public class FileinputOut {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(oos != null){
+            if (oos != null) {
                 //3.关闭流
                 try {
                     oos.close();
@@ -279,12 +279,12 @@ public class FileinputOut {
 
 
     @Test
-    public void ObjectInutOutputStream(){
+    public void ObjectInutOutputStream() {
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream("Object.dat"));
             Object obj = ois.readObject();
-            String str = (String)obj;
+            String str = (String) obj;
 
             System.out.println(str);
         } catch (IOException e) {
@@ -305,12 +305,12 @@ public class FileinputOut {
 
 
     @Test
-    public void RandomAccessFile()  {
-        RandomAccessFile  acf  = null;
-        RandomAccessFile  acf1  = null;
+    public void RandomAccessFile() {
+        RandomAccessFile acf = null;
+        RandomAccessFile acf1 = null;
         try {
             acf = new RandomAccessFile(new File("helloin02.txt"), "rw");
-            acf1  =  new RandomAccessFile(new File("helloin03.txt"), "rw");
+            acf1 = new RandomAccessFile(new File("helloin03.txt"), "rw");
 
             byte[] buf = new byte[1024];
             int len;
@@ -340,8 +340,8 @@ public class FileinputOut {
     }
 
     @Test
-    public void TestRandomAccess01() throws IOException{
-        RandomAccessFile raf1 = new RandomAccessFile("helloin03.txt","rw");
+    public void TestRandomAccess01() throws IOException {
+        RandomAccessFile raf1 = new RandomAccessFile("helloin03.txt", "rw");
         raf1.seek(3);
         StringBuilder builder = new StringBuilder((int) new File("helloin03.txt").length());
         byte[] buf = new byte[20];
@@ -357,4 +357,16 @@ public class FileinputOut {
         raf1.write(builder.toString().getBytes());
         raf1.close();
     }
+
+    @Test
+    public void outToFieTxt() throws IOException {
+        FileOutputStream outputStream = new FileOutputStream(new File("D:\\javaProject\\javaTesting\\src\\FileStream\\FileInpuStream\\outRes.txt"));
+        for (int i = 1001; i <= 1420; i++) {
+//            byte[] buf = new byte[]{(byte) i};
+            outputStream.write((String.valueOf(i) +"\n".toString()).getBytes() , 0, (String.valueOf(i) +"\n".toString()).length());
+        }
+
+
+    }
+
 }
