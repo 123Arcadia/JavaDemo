@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 
 public class StringTest {
     public static void main(String[] args) {
@@ -66,6 +67,16 @@ public class StringTest {
         String res = str.replace(" ", "_");
         System.out.println("res = " + res);
         //res = A_hormone_regulation-based_approach_for_distributed_and_online_scheduling_of_machines_and_automated_guided_vehicles.pdf
+        String str1 = "[][][K03]";
+//        String str1 = "[][][]";
+        String str1Val = str1.substring(1, str1.length() - 1);
+        String[] str1ValRes = str1Val.split("]\\[");
+        System.out.println("str1ValRes = " + Arrays.toString(str1ValRes));
+        System.out.println(str1ValRes == null); // false
+        System.out.println(str1ValRes.length == 0); // true
+        str1ValRes = new String[]{"","",""};
+        System.out.println("".equals(str1ValRes[1]));
+        System.out.println("str1ValRes[1] = "+str1ValRes[1]);
     }
 
     @Test
