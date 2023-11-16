@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  * 注意ISO 8601规定的日期和时间分隔符是T。标准格式如下：
- *
+ * <p>
  * 日期：yyyy-MM-dd
  * 时间：HH:mm:ss
  * 带毫秒的时间：HH:mm:ss.SSS
@@ -28,7 +28,7 @@ public class DateTest {
         System.out.println("date = " + d1); // date = Tue Mar 07 23:09:38 CST 2023
         //date = Thu Sep 07 08:59:09 CST 2023
         Date d2 = new Date();
-        System.out.println((d2.getTime() - d1.getTime() )/ 1000 / 3600 / 24 );
+        System.out.println((d2.getTime() - d1.getTime()) / 1000 / 3600 / 24);
         //0
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd ,  kk:mm:ss E");
@@ -63,6 +63,10 @@ public class DateTest {
         System.out.println(String.format("dateTime format : %s", dateTimeFormatter.format(dateTime)));
         //dateTime format : 2023-03-07 11:23:40
 
+
+        DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSS");
+        System.out.println("newFormat.format(dateTime) = " + newFormat.format(dateTime));
+        // newFormat.format(dateTime) = 2023-11-16 11:52:01:2978
         /**
          * withNano:
          *      此方法接受单个参数nano，该参数表示要在结果中设置的纳秒(从0到999、999、999)。
@@ -121,7 +125,19 @@ public class DateTest {
         // time3 = 12:12:22
 
 
+        System.out.println(DateTest.GetCurrentTime());
+        // 2023-11-16 11:58:32.263
     }
 
+
+    /**
+     * 获取当前时间
+     */
+    public static String GetCurrentTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        String formattedDateTime = currentDateTime.format(formatter);
+        return formattedDateTime;
+    }
 
 }
