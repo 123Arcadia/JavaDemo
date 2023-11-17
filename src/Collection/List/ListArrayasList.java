@@ -114,26 +114,24 @@ public class ListArrayasList {
 
     }
 
+    /**
+     * List.Of 和 arraysAsList 不可 add
+     * ListOf 不可以set 修改
+     */
     @Test
-    public void DequeueTest() {
-        Deque<Integer> deque = new ArrayDeque<>();
-        deque.add(1);
-        deque.add(4);
-        deque.add(2);
-        System.out.println("deque = " + deque); // deque = [1, 4, 2]
-        System.out.println("deque.size() = " + deque.size()); // deque = 3
-        Integer pop = deque.pop();
-        System.out.println("pop = " + pop); // 1
-        /**
-         * 此时 11 会加在前面，因为 push 适应的是 栈
-         */
-        deque.push(11);
-        System.out.println("deque.getFirst() = " + deque.getFirst()); // 11
-        System.out.printf("%-5d\n", deque.getLast()); // 2
-        boolean offerFirst = deque.offerFirst(2);
-        System.out.println("offerFirst = " + offerFirst); // true
-        System.out.println("deque = " + deque); // deque = [2, 11, 4, 2]
+    public void test_ListOf_ArraysAsList() {
+        List<String> ListOf = List.of("zc1", "zc2");
+        List<String> arraysAsList = Arrays.asList("zc1", "zc2");
+        // List.Of 和 arraysAsList 不可 add
+        // ListOf 不可以set 修改
+//        ListOf.add("zc3");    // 异常
+//        arraysAsList.add("zc3");  // 异常
+//        ListOf.set(1, "zc3");  // 异常
+        arraysAsList.set(1, "zc3");
+        System.out.println("ListOf:" + ListOf + "\n" + "arraysAsList:" + arraysAsList);
     }
+
+
 
 
 }
