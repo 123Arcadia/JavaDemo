@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
-import java.util.Arrays;
+import java.util.*;
 
 public class StringTest {
     public static void main(String[] args) {
@@ -90,4 +90,82 @@ public class StringTest {
 
         System.out.println(Inet4Address.getLocalHost().getHostAddress());
     }
+
+    @Test
+    public void testSuppress() {
+        Integer num = 10;
+        int res = uncheck(num);
+        System.out.println("res = " + res);
+    }
+
+    @SuppressWarnings("unchecked")
+    private int uncheck(Integer num) {
+        return num / 0;
+    }
+
+    // 比较两个字符串的汉明距离
+    @Test
+    public void test_hammingDistance() {
+        String s1 = "abc";
+        String s2 = "abd";
+        System.out.println(calculateDistance("zcw", "zcc")); // 1
+        StringBuilder sb = new StringBuilder().append("device Update error:");
+        System.out.println(sb + " "+sb.length()); // 20
+        List<Integer> list = null;
+        if (true) {
+            list = new ArrayList<>();
+        }
+        list.add(1);
+        System.out.println("list = " + list);
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            list.add(random.nextInt());
+        }
+        System.out.println("list = " + list);
+        List<Integer> newList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            newList.add(list.get(i));
+        }
+        System.out.println("newList = " + newList);
+
+        List<Integer> list1 = null;
+        try {
+            list1.remove(1);
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage() + ", " + e.getMessage());
+        }
+
+    }
+
+    public static int calculateDistance(String str1, String str2) {
+        int distance = 0;
+        int str1Length = Math.min(str1.length(), str2.length());
+        for (int i = 0; i < str1Length; i++) {
+            if (str1.charAt(i) != str2.charAt(i)) {
+                distance++;
+            }
+        }
+        return distance;
+    }
+
+
+    @Test
+    public void getLoc() {
+        String[] cntrs = {"K060100801", "C050080402", "C070070302"};
+        for (String cntr : cntrs) {
+            System.out.println(cntr.substring(0, 3) + "_" + Integer.valueOf(cntr.substring(3, 6)) + "_" + cntr.substring(6));
+        }
+        //K06_10_0801
+        //C05_8_0402
+        //C07_7_0302
+        Map<String, List<String>> map = new HashMap<>();
+        map.put("zcw", new ArrayList<String>(Arrays.asList("1", "2", "3")));
+        List<String> list1 = map.get("zcw");
+        list1.remove("1");
+        System.out.println("list1 = " + list1);
+    }
+
+
 }
+
+
