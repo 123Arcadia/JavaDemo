@@ -47,6 +47,33 @@ public class StringTest {
         System.out.println("".equals(s1)); // false
         System.out.println(s.equals(null)); // false
 //        System.out.println(s1.equals(null)); // 报错
+
+        System.out.println("-----------------");
+        String str1 = "zcw";
+        String str2 = "zcw";
+        String str3 = str2;
+        String str4 = new String("zcw");
+        String str5 = String.valueOf("zcw");
+        System.out.println(str1 == str2);
+        //true
+        System.out.println(str2 == str3);
+        //true
+        System.out.println(str1 == str4);
+        // false
+        System.out.println(str4 == str5);
+        //false
+        System.out.println(str4.equals(str5));
+        //true
+        System.out.println(str4 == str1);
+        //false
+        str2 = "ZCW";
+        System.out.println(str2);
+        System.out.println(str3);
+        // zcw (str2和str3地址不同?)
+        System.out.println(str1 == str2);
+        //false
+        System.out.println(str2 == str3);
+        //false
     }
 
     @Test
@@ -167,5 +194,7 @@ public class StringTest {
 
 
 }
+
+
 
 
