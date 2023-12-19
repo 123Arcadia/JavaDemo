@@ -49,6 +49,9 @@ interface Person {
         System.out.println("interface call");
     }
 
+    /**
+     * default: 允许接口聂有完成时间的方法体
+     */
     default void defa() {
         System.out.println(" default... ");
     }
