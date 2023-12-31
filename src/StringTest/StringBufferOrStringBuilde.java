@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.StringJoiner;
 
 public class StringBufferOrStringBuilde {
 
@@ -22,6 +23,21 @@ public class StringBufferOrStringBuilde {
         System.out.println("bd.divide = " + bd.divide(bd2, 5, BigDecimal.ROUND_HALF_UP));
         //bd.divide(bd, 25, 5) = 1130.48645
 
+    }
+
+
+    /**
+     * StringJoiner(分隔符, 前缀，后缀)
+     */
+    @Test
+    public void stringJoiner() {
+        String[] strings = new String[]{"a", "b", "c"};
+        StringJoiner joiner = new StringJoiner(", ", "-[-", "-]-");
+        for (String string : strings) {
+            joiner.add(string);
+        }
+        System.out.println(joiner.toString());
+        //-[-a, b, c-]-
     }
 
 }
