@@ -1,0 +1,177 @@
+###服务端口号
+server:
+  port: 8201
+  servlet:
+    context-path : /rmds
+    session:
+      timeout : 100000
+    tomcat:
+      max-http-post-size : -1
+###起个名字作为服务名称(该服务注册到eureka注册中心的名称，比如商品服务)
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8281/rmds
+  application:
+    name: rmds-manage
+  #数据库配置localhost
+  datasource:
+#    url: jdbc:mysql://localhost:3306/vmds_zs?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/vmds_xg_new?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+#    url: jdbc:mysql://localhost:3306/vmds_zs?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+    #    url: jdbc:mysql://localhost:3306/rmds_jp?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+#    url: jdbc:mysql://localhost:3306/rmds_lh?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+#    url: jdbc:mysql://localhost:3306/vmds_warehouse?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&autoReconnect=true
+    username: root
+    password: xzc8861153
+    driverClassName: com.mysql.cj.jdbc.Driver
+    # 连接池配置
+    druid:
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 6000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位毫秒
+      time-between-eviction-runs-millis: 10000
+      # 配置一个连接在池中最小生存时间
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM dual
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: true
+      # 打开 PSCache，并且指定每个连接上 PSCache 的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的 Filter，去掉后监控界面 SQL 无法统计，wall 用于防火墙
+#      filters: stat,wall,log4j
+      # 通过 connection-properties 属性打开 mergeSql 功能；慢 SQL 记录
+      connection-properties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      # 配置 DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: .js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*
+      # 配置 DruidStatViewServlet
+      stat-view-servlet:
+        url-pattern: /druid/*
+        # IP 白名单，没有配置或者为空，则允许所有访问
+#        allow: 127.0.0.1
+        # IP 黑名单，若白名单也存在，则优先使用
+#        deny: 192.168.31.253
+        # 禁用 HTML 中 Reset All 按钮
+        reset-enable: false
+        # 登录用户名/密码
+      #连接泄露检查，打开removeAbandoned功能 , 连接从连接池借出后，长时间不归还，将触发强制回连接。
+      #回收周期随timeBetweenEvictionRunsMillis进行，如果连接为从连接池借出状态，并且未执行任何sql，
+      #并且从借出时间起已超过removeAbandonedTimeout时间，则强制归还连接到连接池中。
+      remove-abandoned: true
+      # 关闭abanded连接时输出错误日志，这样出现连接泄露时可以通过错误日志定位忘记关闭连接的位置
+      log-abandoned: true
+      # 超时时间，秒
+      remove-abandoned-timeout: 80
+      # ms
+      query-timeout: 10000
+      # ms
+      transaction-query-timeout: 10000
+  #        login-username: root
+#        login-password: 123
+  thymeleaf :
+    prefix : classpath:/resources/
+    suffix : .html
+    #外链配置文件设置
+  profiles:
+    active : control,manage,dispatch,charge,dcs
+  jackson:
+    date-format : yyyy-MM-dd HH:mm:ss
+    time-zone : GMT+8
+    serialization:
+      indent-output : true
+  jpa:
+    open-in-view : true
+    show-sql : false
+    hibernate:
+      ddl-auto: update
+    properties :
+      hibernate:
+        jdbc.batch_size : 2000
+        jdbc.batch_versioned_data : true
+        order_inserts : true
+        order_updates : true
+  servlet:
+    multipart:
+      max-file-size : -1
+      max-request-size: -1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+###服务注册到eureka注册中心的地址
+eureka:
+  #本地调试需要注释
+  instance:
+    prefer-ip-address : true
+    # mac 必须配置vpn虚拟ip
+    ip-address : 127.0.0.1
+    lease-expiration-duration-in-seconds: 6
+    lease-renewal-interval-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://admin:zjudes123@localhost:8100/eureka/
+#      defaultZone: http://admin:zjudes123@localhost:8100/eureka/,http://admin:zjudes123@localhost:9100/eureka/
+    ###因为该应用为服务提供者，是eureka的一个客户端，需要注册到注册中心
+    register-with-eureka: true
+    ###是否需要从eureka上检索服务
+    fetch-registry: true
+    registry-fetch-interval-seconds: 2
+#此处定义rmds-manage应用的负载均衡规则，注意应用名为调用的app，不是当前应用名
+#重试次数=（MaxAutoRetries+MaxAutoRetriesNextServer+MaxAutoRetriesNextServer*MaxAutoRetries）
+#重试时间=（MaxAutoRetries+MaxAutoRetriesNextServer+MaxAutoRetriesNextServer*MaxAutoRetries）*ReadTimeout+网络响应时间
+#并且由于重试应为执行熔断后而停止重试，从而造成不必要的情况发生，因此熔断时间应该在重试时间之后，
+#（MaxAutoRetries+MaxAutoRetriesNextServer+MaxAutoRetriesNextServer*MaxAutoRetries）*ReadTimeout+网络响应时间+ReadTimeout<timeoutInMilliseconds
+rmds-dispatch:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
+    ReadTimeout: 8000   #负载均衡超时时间，默认值5000
+    ConnectTimeout: 3000 #ribbon请求连接的超时时间，默认值2000
+    MaxAutoRetries: 9     #对当前实例的重试次数，默认0
+    MaxAutoRetriesNextServer: 0 #对切换实例的重试次数，默认1
+    ServerListRefreshInterval: 1000
+
+rmds-control:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
+    ReadTimeout: 8000   #负载均衡超时时间，默认值5000
+    ConnectTimeout: 3000 #ribbon请求连接的超时时间，默认值2000
+    MaxAutoRetries: 9     #对当前实例的重试次数，默认0
+    MaxAutoRetriesNextServer: 0 #对切换实例的重试次数，默认1
+    ServerListRefreshInterval: 1000
+
+#开启关闭hystrix断路器
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 30000
+        readTimeout: 30000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 100000
+        timeout:
+          enabled : true
+

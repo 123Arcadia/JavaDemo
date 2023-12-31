@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
+    <output url="file://$MODULE_DIR$/Command/JCommand/target/classes" />
+    <output-test url="file://$MODULE_DIR$/Command/JCommand/target/test-classes" />
+    <content url="file://$MODULE_DIR$/Command/JCommand">
+      <sourceFolder url="file://$MODULE_DIR$/Command/JCommand/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Command/JCommand/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/Command/JCommand/target" />
+    </content>
+    <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.testng:testng:7.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.webjars:jquery:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.82" level="project" />
+  </component>
+</module>
