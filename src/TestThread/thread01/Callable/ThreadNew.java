@@ -26,6 +26,7 @@ class NumThread implements Callable {
         return sum;
     }
 }
+
 public class ThreadNew {
     public static void main(String[] args) {
         //创建callable接口实现类的对象
