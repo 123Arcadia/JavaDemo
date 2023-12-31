@@ -1,4 +1,4 @@
-package List;
+package Collection.List;
 
 import org.junit.Test;
 
@@ -151,6 +151,70 @@ public class ListArrayasList {
 //        ListOf.set(1, "zc3");  // 异常
         arraysAsList.set(1, "zc3");
         System.out.println("ListOf:" + ListOf + "\n" + "arraysAsList:" + arraysAsList);
+        List<String> list = new ArrayList<>(List.of("zcw ", " zcw "));
+        for (String s : list) {
+            s = s.trim();
+        }
+
+        System.out.println("list = " + list);
     }
+
+    /**
+     * ArrayList:subList (修改subList得到的List, 原本List也会改变)
+     * fromIndex - 截取元素的起始位置，包含该索引位置元素
+     * toIndex - 截取元素的结束位置，不包含该索引位置元素
+     */
+    @Test
+    public void test_subList() {
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 5, 33, 44, 3, 2, 3, 9, 22)); // 9个
+        System.out.println(list.subList(0, list.size() / 2));
+        System.out.println(list.size() + ", " + list.get(list.size() - 1));
+        System.out.println(list.subList(list.size() / 2, list.size() - 1));
+        System.out.println(list.subList(list.size() / 2, list.size()));
+        //[1, 5, 33, 44]
+        //9, 22
+        //[3, 2, 3, 9]
+        //[3, 2, 3, 9, 22]
+
+//        List<Integer> subList = (ArrayList<Integer>) list.subList(0, 2);
+//        System.out.println("subList = " + subList);
+//        subList.set(0, 999);
+//        System.out.println("subList = " + subList);
+//        System.out.println("list = " + list);
+        //subList = [1, 5]
+        //subList = [999, 5]
+        //list = [999, 5, 33, 44, 3, 2, 3, 9, 22]
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 111);
+        map.remove(2);
+
+        List<Integer> subList1 = new ArrayList<>();
+        subList1 = list.subList(0, 3);
+        subList1.set(0, 9999);
+        System.out.println("subList1 = " + subList1);
+        System.out.println("list = " + list);
+
+    }
+
+    /**
+     * String[] 化为 List<String>
+     */
+    @Test
+    public void StringsToList() {
+        String[] str = {"111", "222", "333"};
+        System.out.println(str.length);
+        List<String> res1 = new ArrayList<>(Arrays.asList(str));
+        List<String> res2 = new ArrayList<>(str.length);
+        for (int i = 0; i < str.length; i++) {
+            res2.add(str[i]);
+        }
+        List<String> res3 = new ArrayList<>(str.length);
+        Collections.addAll(res3, str);
+        System.out.println("res1 = " + res1);
+        System.out.println("res2 = " + res2);
+        System.out.println("res3 = " + res3);
+
+    }
+
 
 }
