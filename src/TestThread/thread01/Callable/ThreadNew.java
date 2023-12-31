@@ -11,7 +11,7 @@ import java.util.concurrent.FutureTask;
  *  *      3.Callable是支持泛型的
  *  *      4.需要借助FutureTask类，比如获取返回结果
  */
-class NumThread implements Callable {
+class NumThread implements Callable{
 
     @Override
     public Object call() throws Exception {

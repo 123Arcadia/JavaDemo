@@ -9,7 +9,23 @@ public class ThreadDemo {
 //        MyThread02.currentThread().setName("02-->");
 
 
+//        myThread02.start();
+//        try {
+//            /**
+//             * 把myThread02线程加入到main线程之中(让myThread02先行)
+//             */
+//            myThread02.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        myThread01.start();
+
         myThread01.start();
+        try {
+            myThread01.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         myThread02.start();
 
         //new MyThread01().start();  //第3线程
@@ -19,7 +35,7 @@ public class ThreadDemo {
             public void run() {
                 this.setName("03--->");
                 for (int i = 0; i < 20; i++) {
-                    System.out.println(getName() + "匿名调用Thread" + "-> " + i + "优先级：" + getPriority());
+                    System.out.println(getName() + "(03调用):" + "-> " + i + "优先级：" + getPriority());
                     if (i == 3) {
                         try {
                             myThread01.join();
@@ -34,6 +50,7 @@ public class ThreadDemo {
     }
 
 }
+
 class MyThread01 extends Thread {
 
     @Override
@@ -61,7 +78,8 @@ class MyThread02 extends Thread {
     @Override
     public void run() {
         this.setName("02--->");
-        setPriority(MIN_PRIORITY);
+//        setPriority(10);
+
         for (int i = 0; i < 10; i++) {
             if (i % 2 != 0) {
                 System.out.println(Thread.currentThread().getName() + "(02调用):" + i + "优先级：" + getPriority());
