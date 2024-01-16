@@ -8,20 +8,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class file {
-    /**
-     * 创建文件的4种方法分享public boolean createNewFile(): 用于检测文件是否存在，如不存在时，则创建文件
-     *
-     * getName()：获取文件名字。
-     * getAbsolutePath()：获取文件的绝对路径。
-     * getParent()：获取文件的父级目录。
-     * length()：获取文件的大小（以字节为单位）。
-     * exists()：判断文件是否存在。
-     * isFile()：判断是否为一个文件。
-     * isDirectory()：判断是否为一个目录。
-     * delete()：删除文件
-     * mkdirs()：创建多级目录
-     * mkdir()：创建父目录(一级目录)
-     */
+
     @Test
     public void createFile() {
         try {
@@ -59,4 +46,40 @@ public class file {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 创建文件的4种方法分享public boolean createNewFile(): 用于检测文件是否存在，如不存在时，则创建文件
+     *
+     * getName()：获取文件名字。
+     * getPath(): 获取相对路径，输入的是什么路径就输出什么路径字符串
+     * getAbsolutePath()：获取文件的绝对路径。但不会处理./和../这种路径显示
+     * getCanonicalPath: 获取文件的绝对路径
+     *      注意:
+     *      getCanonicalPath()会对路径中的.和..采用省略等方式的规范化处理，而getAbsolutePath()不会对其进行处理
+     *
+     * getParent()：获取文件的父级目录。(会有./和../)
+     * length()：获取文件的大小（以字节为单位）。
+     * exists()：判断文件是否存在。
+     * isFile()：判断是否为一个文件。
+     * isDirectory()：判断是否为一个目录。
+     * delete()：删除文件
+     * mkdirs()：创建多级目录
+     * mkdir()：创建父目录(一级目录)
+     */
+    @Test
+    public void test_FileChannel_lock() throws IOException {
+        System.out.println("yyds".getBytes().length); // 4
+
+        File file = new File("./src/Socket/NIO/mapperByteBuffer.txt");
+
+        System.out.println(file.getPath());
+        //.\src\Socket\NIO\mapperByteBuffer.txt
+        System.out.println(file.getAbsolutePath());
+        //D:\javaProject\javaTesting\.\src\Socket\NIO\mapperByteBuffer.txt
+        System.out.println(file.getCanonicalPath());
+        //D:\javaProject\javaTesting\src\Socket\NIO\mapperByteBuffer.txt
+        System.out.println(file.getParent());
+        //.\src\Socket\NIO
+    }
+
 }
