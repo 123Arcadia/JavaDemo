@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -127,11 +128,33 @@ public class DateTest {
 
         System.out.println(DateTest.GetCurrentTime());
         // 2023-11-16 11:58:32.263
+
+        Date dNow = new Date( );
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat ft1 = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat ft2 = new SimpleDateFormat ("HHmm");
+
+        System.out.println("当前时间为: " + ft.format(dNow));
+        // 当前时间为: 2023-12-07 03:35:37
+        System.out.println("当前时间为: " + ft1.format(dNow));
+        //当前时间为: 2023-12-07 15:37:30
+        System.out.println("当前时间为: " + ft2.format(dNow));
+        //当前时间为: 1539
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyyy-MMMM-dd hh:mm:ss");
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MMM-dd hh:mm:ss");
+        String timeFormat = format.format(dNow);
+        String timeFormat1 = format1.format(dNow);
+        System.out.println("timeFormat = " + timeFormat);
+        //timeFormat = 02023-十二月-31 10:39:23
+        System.out.println("timeFormat1 = " + timeFormat1);
+        //timeFormat1 = 2023-12月-31 10:39:23
     }
 
 
     /**
      * 获取当前时间
+     * yyyy-MM-dd HH:mm:ss.SSS
      */
     public static String GetCurrentTime() {
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -139,5 +162,30 @@ public class DateTest {
         String formattedDateTime = currentDateTime.format(formatter);
         return formattedDateTime;
     }
+
+    /**
+     * java获取时间差
+     */
+    @Test
+    public void durationTest() {
+        LocalTime start = LocalTime.now();
+//        LocalTime end = LocalTime.of(20,13,23);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        LocalTime end = LocalTime.now();
+        System.out.println("time: " + Duration.between(start,end).toMillis() + "ms");
+        Duration duration = Duration.between(start,end);
+        System.out.println("时间间隔为"+duration.toHours()+"h");
+        System.out.println("时间间隔为"+duration.toMillis()+"ms");
+        System.out.println("时间间隔为"+duration.toNanos()+"ns");
+        //time: 2002ms
+        //鏃堕棿闂撮殧涓�0h
+        //鏃堕棿闂撮殧涓�2002ms
+        //鏃堕棿闂撮殧涓�2002155600ns
+    }
+
 
 }
