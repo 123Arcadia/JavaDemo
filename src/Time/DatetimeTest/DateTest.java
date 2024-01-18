@@ -168,14 +168,16 @@ public class DateTest {
      */
     @Test
     public void durationTest() {
-        LocalTime start = LocalTime.now();
+//        LocalTime start = LocalTime.now();
+//        LocalDate不适合
+        LocalDateTime start = LocalDateTime.now();
 //        LocalTime end = LocalTime.of(20,13,23);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        LocalTime end = LocalTime.now();
+        LocalDateTime end = LocalDateTime.now();
         System.out.println("time: " + Duration.between(start,end).toMillis() + "ms");
         Duration duration = Duration.between(start,end);
         System.out.println("时间间隔为"+duration.toHours()+"h");
