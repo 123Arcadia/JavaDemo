@@ -2,7 +2,9 @@ package StringTest;
 
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
+import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.util.*;
 
@@ -48,7 +50,7 @@ public class StringTest {
         System.out.println(s.equals(null)); // false
 //        System.out.println(s1.equals(null)); // 报错
 
-        System.out.println("-----------------");
+        System.out.println("-------------");
         String str1 = "zcw";
         String str2 = "zcw";
         String str3 = str2;
@@ -104,6 +106,36 @@ public class StringTest {
         str1ValRes = new String[]{"","",""};
         System.out.println("".equals(str1ValRes[1]));
         System.out.println("str1ValRes[1] = "+str1ValRes[1]);
+
+        System.out.println("------------------");
+        InetSocketAddress address = new InetSocketAddress("127.0.0.1", 8080);
+        System.out.println(address.getAddress());
+        ///127.0.0.1
+        System.out.println(address.getAddress().getHostAddress());
+        System.out.println(address.getHostString());
+        System.out.println(address.getHostName());
+        //127.0.0.1
+        //127.0.0.1
+        //127.0.0.1
+        String ipString = address.getAddress().toString();
+        String idx0 = ipString;
+        String idx1 = ipString;
+        if(ipString.contains("/")){
+            //---------------
+            idx0 = ipString.split("/")[0];
+            idx1 = ipString.split("/")[1];
+            //---------------
+            ipString = ipString.split("/")[1];
+        }
+        String[] split = ipString.split("/");
+        /**
+         * // [127.0.0.1] 为什么不是[1]?
+         */
+        System.out.println(split[0]);
+        System.out.println("idx0 = " + idx0 + ", idx1 = " + idx1);
+        //idx0 = 127.0.0.1, idx1 = 127.0.0.1
+        System.out.println(Arrays.toString(ipString.split("/")));
+        System.out.println("ipString = " + ipString);
     }
 
     @Test
@@ -192,7 +224,37 @@ public class StringTest {
         System.out.println("list1 = " + list1);
     }
 
+    @Test
+    public void test_split() throws UnsupportedEncodingException {
+        String str = "A hormone regulation–based approach for distributed and online scheduling of machines and automated guided vehicles.pdf";
+        String[] res = str.split("\\.");
+        System.out.println("res.length = " + res.length);
+        // res.length = 2
+        System.out.println(res[1]);
+        // pdf
+        String strSum = res[0] + res[1];
+        System.out.println("res = " + new String(strSum.getBytes(), "UTF-8"));
+        // res = [A hormone regulation-ased approach for distributed and online scheduling of machines and automated guided vehicles, pdf]
+        System.out.println(new String(res[0].getBytes(), "UTF-8"));
+        //A hormone regulation鈥揵ased approach for distributed and online scheduling of machines and automated guided vehicles
+        String[] s = {"zcw", "www"};
+        // String[]转化为List
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(s));
+        System.out.println(list);
+    }
 
+
+    @Test
+    public void sort() {
+        List<Integer> list = new ArrayList<>(Arrays.asList(1,4,23,5,5));
+        // 对list倒序排列
+        list.sort((o1, o2) -> {return o1 - o2;});
+        System.out.println("list = " + list);
+        //list = [1, 4, 5, 5, 23]
+        list.sort((o1, o2) -> {return o2 - o1;});
+        System.out.println("list = " + list);
+        //list = [23, 5, 5, 4, 1]
+    }
 }
 
 
