@@ -23,7 +23,7 @@ public class FunctionInterface {
     }
 
     @Test
-    public void test2(){
+    public void Consumer_test(){
         Consumer<String> con = new Consumer<String>() {
             @Override
             public void accept(String s) {
@@ -41,6 +41,23 @@ public class FunctionInterface {
         //善与恶的区别是什么？
         //+++++++++++++++++++
         //先天人性无善恶,后天人性有善恶。
+
+        System.out.println("-----------测试Consumer的addThen-------------");
+        //专门消费Student对象的Consumer
+        Consumer<Integer> consumerInt = i -> {i++;
+            System.out.println("i = " + i);};
+
+        consumerInt.andThen(i -> {i+=2;
+                    System.out.println("i(1) = " + i);})
+                    .andThen(i -> {i+=2;
+                        System.out.println("i(2) = " + i);})
+                    .accept(10);
+        // consumerInt执行accept方法后交andThen中的lambda继续执行
+        // ！！！ 注意：这里accept方法没有传送计算结果的作用，所以两个andThen方法的i都是10 ！！！
+        //i = 11
+        //i(1) = 12
+        //i(2) = 12
+
     }
 
     /**
