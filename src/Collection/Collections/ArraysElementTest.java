@@ -2,12 +2,25 @@ package Collection.Collections;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class ArraysElementTest {
+
+    /**
+     * 获取数组长度
+     * 新方法: (来自java.lang.reflect) Array.getLength(array)
+     */
+    @Test
+    public void testLength() {
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        // 1.
+        System.out.println("array.length = " + array.length);
+        //array.length = 5
+        // 2.
+        System.out.println("Array.getLength(strings) = " + Array.getLength(array));
+        //Array.getLength(strings) = 3
+    }
 
     /**
      * Arrays.deepToString: 此方法用于将多维数组转换为字符串。
@@ -74,7 +87,9 @@ public class ArraysElementTest {
         // [mismatch]: the index of the first mismatch between the two arrays, otherwise -1.
         int mismatchEqual = Arrays.mismatch(c,d);
         System.out.println("mismatchEqual = " + mismatchEqual); // -1
+
     }
+
 
     /**
      * Collections.disjoint(set1, set2):
