@@ -2,22 +2,47 @@ package Lambda.StreamTest;
 
 import Lambda.cyborg_Stream.Employee;
 import Lambda.cyborg_Stream.EmployeeData;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamTest {
 
     /**
+     * 超创建
+     *
+     */
+    @Test
+    public void test1() {
+        // 使用 Stream.of() 方法直接将一组元素转换为 Stream 对象
+        Stream<String> stream = Stream.of("aaa", "bbb", "ccc");
+
+        //如果我们不确定要添加多少个元素到 Stream 中，可以使用 Stream.builder() 创建一个 Stream.Builder 对象，并使用其 add() 方法来逐个添加元素，最后调用 build() 方法生成 Stream 对象
+        Stream<Object> buidStream = Stream.builder().add("aaa").add("bbb").add("ccc").build();
+
+        Stream<Integer> stream1 = Stream.generate(() -> 0); // 创建一个无限流，每个元素都是 0
+        Stream<Integer> stream2 = Stream.iterate(0, n -> n + 1); // 创建一个无限流，从 0 开始递增
+
+
+
+    }
+    /**
      * stream():
      * limit()
      * filter(Predicate)
      * distinct()
-     * skip(long n)  与limit互补; 跳过前n个元素
+     * skip(long n)  与limit互补; 跳过前n个元素 (需要注意的是，在使用截断操作时需要注意流的有界性。如果流是无界的（例如 Stream.generate()），那么使用 limit() 方法可能导致程序陷入无限循环，而使用 skip() 方法则没有意义)
      */
     @Test
     public void stream_List() {
@@ -55,6 +80,7 @@ public class StreamTest {
     /**
      * sorted()	产生一个新流，其中按自然顺序排序
      * sorted(Comparator com)	产生一个新流，其中按比较器顺序排序
+     * sorted(Comparator.reverseOrder())
      */
     @Test
     public void test20() {
@@ -63,10 +89,16 @@ public class StreamTest {
         System.out.println("list_sorted = " + list_sorted);
         //list_sorted = [13, 27, 43, 52, 54, 64, 97]
 
-        List<Integer> list_sorted_Comparator = list.stream().sorted(Integer::compare).collect(Collectors.toList());
-        System.out.println("list_sorted_Comparator = " + list_sorted_Comparator);
+        List<Integer> list_sorted_Asc = list.stream().sorted(Integer::compare).collect(Collectors.toList());
+        System.out.println("list_sorted_Asc = " + list_sorted_Asc);
         //[13, 27, 43, 52, 54, 64, 97]
 
+        //降序
+        List<Integer> list_sorted_Desc = list.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        System.out.println("list_sorted_Desc = " + list_sorted_Desc);
+        //list_sorted_Desc = [97, 64, 54, 52, 43, 27, 13]
     }
 
     /**
@@ -82,7 +114,10 @@ public class StreamTest {
      */
 
 
+
     /**
+     * 归约（Reduce）:
+     *
      * reduce(T iden, BinaryOperator b)	可以将流中元素反复结合起来，得到一个值。返回T
      * reduce(BinaryOperator b)	可以将流中元素反复结合起来，得到一个值。返回Optional
      * reduce(U identity,BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner)
@@ -160,6 +195,7 @@ public class StreamTest {
     }
 
 
+
     @Test
     public void Stream_Cases() {
         List<String> strings = Arrays.asList("abc", "def", "gkh", "abc");
@@ -178,13 +214,21 @@ public class StreamTest {
         //limit 获取到1个元素的stream
         Stream<String> limit = strings.stream().limit(2);
         //toArray 比如我们想看这个limitStream里面是什么，比如转换成String[],比如循环
-        String[] array = limit.toArray(String[]::new);
-        for (String s : array) {
-            System.out.println(s);
-        }
-        //abc
-        //def
-        System.out.println("array = " + array); // array = [Ljava.lang.String;@2f7c7260
+//        String[] array = limit.toArray(String[]::new);
+//        for (String s : array) {
+//            System.out.println(s);
+//        }
+//        //abc
+//        //def
+//        System.out.println("array = " + Arrays.toString(array)); // array = [Ljava.lang.String;@2f7c7260
+        String[] array1 = limit.toArray(new IntFunction<String[]>() {
+            @Override
+            public String[] apply(int value) {
+                return new String[value];
+            }
+        });
+        System.out.println("array = " + Arrays.toString(array1)); // array = [abc, def]
+
 
         System.out.println("========");
 
@@ -219,6 +263,10 @@ public class StreamTest {
         //对数组的统计，比如用
         List<Integer> number = Arrays.asList(1, 2, 5, 4);
 
+        /**
+         * 统计
+         * summaryStatistics: 从 Stream 中获取一些常用的统计信息，如元素个数、最小值、最大值、总和和平均值
+         */
         IntSummaryStatistics statistics = number.stream().mapToInt((x) -> x).summaryStatistics();
         System.out.println("列表中最大的数(max) : " + statistics.getMax());
         System.out.println("列表中最小的数(min) : " + statistics.getMin());
@@ -277,7 +325,8 @@ public class StreamTest {
 
         System.out.println(all);
         // [alice, bob, charlie, alice@example.com, bob@example.com, charlie@example.com]
-
+        all.add("1");
+        System.out.println("all = " + all);
 
         /**
          * 处理多维数组
@@ -295,4 +344,76 @@ public class StreamTest {
         //collect = [1, 2, 3, 4]
 
     }
+
+    /**
+     * 并行流
+     *
+     * 避免共享可变状态：在并行流中，多个线程会同时操作数据。如果共享可变状态（如全局变量）可能导致数据竞争和不确定的结果。因此，避免在并行流中使用共享可变状态，或者采取适当的同步措施来确保线程安全。
+     *
+     * 使用合适的操作：
+     *      一些操作在并行流中的性能表现更好，而另一些操作则可能导致性能下降。一般来说，在并行流中使用基于聚合的操作（如 reduce、collect）和无状态转换操作（如 map、filter）的性能较好，
+     *      而有状态转换操作（如 sorted）可能会导致性能下降。
+     */
+    @Test
+    public void testParallelStream() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        numbers.parallelStream()
+                .map(n -> n) // 在多个线程上并行处理计算
+                .forEach(System.out::println);
+        //3
+        //5
+        //4
+        //1
+        //2
+
+        /**
+         * FileStreamExample
+         */
+        String fileName = "src/Lambda/StreamTest/Streamfile.txt";
+        // 读取文件内容并创建 Stream
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+            // 打印文件的每一行内容
+//            stream.forEach(System.out::println);
+
+            // 统计文件的行数
+            long count = stream.count();
+            System.out.println("lineCount:" + count);
+
+            // 筛选包含关键词的行并打印输出
+//            stream.filter(line -> line.contains("keyword"))
+//                    .forEach(System.out::println);
+
+            // 将文件内容转换为大写并打印输出
+//            stream.map(String::toUpperCase)
+//                    .forEach(System.out::println);
+
+            // 将文件内容收集到 List 中
+//            List<String> lines = stream.collect(Collectors.toList());
+//            System.out.println(lines);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    class Stu{
+        private String name;
+        private Integer age;
+    }
+
+    /**
+     * Stream: 由List<Object>转为Map<K, V>, K为对象的每个属性，V为对象
+     */
+    @Test
+    public void testStream2() {
+        List<Stu> stuList = new ArrayList<>();
+        for (int i = 0; i < 26; i++) {
+            stuList.add(new Stu(i+"", i));
+        }
+        Map<String, List<Stu>> groupByAppIdStus = stuList.stream().collect(Collectors.groupingBy(Stu::getName));
+        System.out.println("groupByAppIdStus = " + groupByAppIdStus);
+    }
+
 }
