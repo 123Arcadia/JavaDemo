@@ -52,6 +52,11 @@ public class CustomizeThreadPoolExt extends ThreadPoolExecutor {
         return dropTasks;
     }
 
+    /**
+     * 任务执行 切面advice
+     * @param t the thread that will run task {@code r}
+     * @param r the task that will be executed
+     */
     @Override
     protected void beforeExecute(Thread t, Runnable r) {
         // 监控线程池运行时的各项指标
