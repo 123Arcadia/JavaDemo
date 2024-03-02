@@ -1,8 +1,8 @@
-package TestThread.thread01.synchronizedReentrantLock;
+package TestThread.thread01.Lock;
 
 public class synRunnableTest {
     public static void main(String[] args) {
-        Window window = new Window();
+        WindowSync window = new WindowSync();
         Thread w1 = new Thread(window);
         Thread w2 = new Thread(window);
         Thread w3 = new Thread(window);
@@ -18,7 +18,7 @@ public class synRunnableTest {
     }
 }
 
-class Window implements Runnable {
+class WindowSync implements Runnable {
     // 加上static 才是类的静态变量
     private static int ticket = 100;
 

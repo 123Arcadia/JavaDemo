@@ -1,8 +1,8 @@
-package TestThread.thread01.synchronizedReentrantLock;
+package TestThread.thread01.Lock;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-class Windows extends Thread {
+class Windows2 extends Thread {
     // 加上static会在ticket = 0时也减1
 //    private int ticket = 100;
     private int ticket = 100;
@@ -43,7 +43,7 @@ class Windows extends Thread {
 class windowsTest {
     public static void main(String[] args) {
 
-        Windows windows = new Windows();
+        Windows2 windows = new Windows2();
 
         for (int i = 0; i < 3; i++) {
             new Thread(windows, i + "号窗口 ").start();
