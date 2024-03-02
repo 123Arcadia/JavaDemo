@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class FunctionInterface {
@@ -57,6 +58,22 @@ public class FunctionInterface {
         //i = 11
         //i(1) = 12
         //i(2) = 12
+
+         class Student {
+            public void hello(){
+                System.out.println("我是学生！");
+            }
+        }
+
+        /**
+         * compose将指定函数式的结果作为当前函数式的实参
+         */
+        Function<Integer, String> INTEGER_STRING_FUNCTION = Object::toString;
+        String str = INTEGER_STRING_FUNCTION
+                .compose((String s) -> s.length())   //将此函数式的返回值作为当前实现的实参
+                .apply("lbwnb");   //传入上面函数式需要的参数
+        System.out.println("str = " + str); // 5
+
 
     }
 

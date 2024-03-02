@@ -33,4 +33,15 @@ public class streamPro {
         System.out.println("Arrays.toString(res) = " + Arrays.toString(res));
         //Arrays.toString(res) = [2, 5, 9]
     }
+
+    /**
+     * 集合转数组
+     */
+    @Test
+    public void test1() {
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 2, 1, 4, 9, 5));
+        int[] arr1 = list1.stream().mapToInt(i -> i).toArray();
+        System.out.println(Arrays.toString(arr1));
+
+    }
 }

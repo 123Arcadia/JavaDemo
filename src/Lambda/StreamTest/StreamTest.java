@@ -404,7 +404,7 @@ public class StreamTest {
     }
 
     /**
-     * Stream: 由List<Object>转为Map<K, V>, K为对象的每个属性，V为对象
+     * Stream: 由List<Object>转为Map<K, List<U>>, K为对象的每个属性，V为对象
      */
     @Test
     public void testStream2() {
