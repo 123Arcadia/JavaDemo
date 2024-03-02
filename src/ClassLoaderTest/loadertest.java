@@ -31,10 +31,6 @@ public class loadertest {
         //jdk.internal.loader.ClassLoaders$PlatformClassLoader@28f67ac7
         //null
         //null
-
-        String classPath = System.getProperty("java.class.path");
-        System.out.println("classPath = " + classPath);
-        //classPath = D:\javaIDEA\IntelliJ IDEA 2022.2.1\lib\idea_rt.jar;D:\javaIDEA\IntelliJ IDEA 2022.2.1\plugins\junit\lib\junit5-rt.jar;D:\javaIDEA\IntelliJ IDEA 2022.2.1\plugins\junit\lib\junit-rt.jar;D:\javaProject\javaTesting\out\production\javaTesting;D:\javaProject\javaTesting\lib\junit-4.13.1.jar;D:\javaProject\javaTesting\lib\hamcrest-core-1.3.jar;D:\javaProject\javaTesting\lib\lombok-1.18.22.jar;D:\CSProject\maven-Repo\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar
     }
 
 
@@ -110,6 +106,35 @@ public class loadertest {
         System.out.println("user = " + user + ",password = " + password);
     }
 
+
+    @Test
+    public void test01() throws ClassNotFoundException {
+        // 根加载加载的路径
+//        System.out.println(System.getProperty("sun.boot.class.path"));
+//        // 扩展加载器
+//        System.out.println(System.getProperty("java.ext.dirs"));
+//
+//        Class<?> aClass = Class.forName(String.valueOf(loadertest.class));
+//        System.out.println(aClass.getClassLoader()); // AppClassLoader
+//        System.out.println(aClass.getClassLoader().getParent()); // ExtClassLoader
+//        System.out.println(aClass.getClassLoader().getParent().getParent());
+
+        Properties properties = System.getProperties();
+        System.out.println("System.getenv() = " + System.getenv());
+
+        ClassLoader classLoader = loadertest.class.getClassLoader();
+        System.out.println("classLoader = " + classLoader);
+        //classLoader = jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b
+        ClassLoader pare1 = classLoader.getParent();
+        System.out.println("pare1 = " + pare1);
+        //pare1 = jdk.internal.loader.ClassLoaders$PlatformClassLoader@c818063
+        ClassLoader pare2 = pare1.getParent();
+        System.out.println("pare2 = " + pare2);
+        //pare2 = null
+        ClassLoader pare3 = pare2.getParent();
+        System.out.println("pare3 = " + pare3); // null
+
+    }
 
 }
 
