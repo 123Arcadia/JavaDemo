@@ -1,9 +1,9 @@
 package AlgorithmNotes.hot100.Tree;
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode() {}
     TreeNode(int val) { this.val = val; }
     TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
