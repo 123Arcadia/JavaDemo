@@ -11,7 +11,10 @@ class DLinkedNode {
     DLinkedNode post;
 }
 
-public class LRUTest {
+/**
+ * LRU（Least Recently Used，最近最少使用）算法
+ */
+public class LRUTest_DLinkedNode {
     //一般不用hashTable
 //    private Hashtable<Integer, DLinkedNode> cache = new Hashtable<Integer, DLinkedNode>();
     private static Map<Integer, DLinkedNode> cache = new ConcurrentHashMap<>();
@@ -21,8 +24,10 @@ public class LRUTest {
 
     /**
      * 内存容量
+     *
+     * LRU结构: 首尾 各有一个虚拟节点
      */
-    public LRUTest(int capacity) {
+    public LRUTest_DLinkedNode(int capacity) {
         this.capacity = capacity;
         this.count = 0;
 
@@ -44,7 +49,12 @@ public class LRUTest {
         return node.value;
     }
 
-    public void set(String key, int value) {
+    /**
+     * 如果cache中已有会覆盖
+     * @param key
+     * @param value
+     */
+    public void put(String key, int value) {
         DLinkedNode node = cache.get(Integer.valueOf(key));
         if (node == null) {
             DLinkedNode newNode = new DLinkedNode();
@@ -98,4 +108,14 @@ public class LRUTest {
         this.removeToHead(res);
         return res;
     }
+
+    public void reCapacity(int newCapacity) {
+        if (this.capacity <= newCapacity){
+            this.capacity = newCapacity;
+            return ;
+        }
+        throw new RuntimeException("newCapacity is too small!");
+    }
+
+
 }
