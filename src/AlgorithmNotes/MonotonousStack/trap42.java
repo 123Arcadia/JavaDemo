@@ -8,24 +8,33 @@ public class trap42 {
      * 42: 接雨水
      */
     public int trap(int[] height) {
-//        int n = height.length;
-//        if (n < 2) return 0;
-//        int[] maxLeft = new int[n];
-//        int[] maxRight = new int[n];
-//        maxLeft[0] = height[0];
-//        maxRight[n-1] = height[n-1];
-//        for (int i = 1; i < n ; i++) {
-//            maxLeft[i] = Math.max(maxLeft[i-1], height[i]);
-//        }
-//        for(int i = n - 2; i >= 0; i--) {
-//            maxRight[i] = Math.max(maxRight[i+1], height[i]);
-//        }
-//        int sum = 0;
-//        for (int i = 1; i < n-1; i++) {
-//            int count = Math.min(maxLeft[i], maxRight[i]) - height[i];
-//            sum += Math.max(count, 0);
-//        }
-//        return sum;
+        /**
+         * 接雨水
+         */
+//            // 对每个柱找到不小于它的第二个柱
+//            int n = height.length;
+//            if (n < 2) {
+//                return 0;
+//            }
+//            int[] maxL = new int[n];
+//            int[] maxR = new int[n];
+//            maxL[0] = height[0];
+//            maxR[n - 1] = height[n - 1];
+//            for (int i = 1; i < n; i++) {
+//                // 知道对于height[i]的左边最大的柱子
+//                maxL[i] = Math.max(maxL[i - 1], height[i]);
+//            }
+//            //同理
+//            for (int i = n-2; i >= 0; i--) {
+//                maxR[i] = Math.max(maxR[i + 1], height[i]);
+//            }
+//            int sum = 0;
+//            // Bianli [1,n-1]的柱子
+//            for (int i = 1; i < n - 1; i++) {
+//                int count = Math.min(maxL[i], maxR[i]) - height[i];
+//                sum += count;
+//            }
+//            return sum;
 
 
         int n = height.length;
@@ -47,4 +56,7 @@ public class trap42 {
         }
         return sum;
     }
+
+
+
 }

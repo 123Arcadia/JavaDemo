@@ -141,4 +141,31 @@ public class KmpTest {
         // 所有next: [0, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 6]
     }
 
+
+
+    public int minimumTimeToInitialState(String word, int k) {
+       return kmp(word, k);
+    }
+
+    private int kmp(String word, int k) {
+        int l = word.length();
+        int[] next = new int[l];
+        for (int i = 1, j =0; i < l; i++) {
+            j = next[i-1];
+            while (j > 0 && word.charAt(i) != word.charAt(j)) {
+                j = next[j-1];
+            }
+            if (word.charAt(i) == word.charAt(j)) {
+                next[i] = j + 1;
+            } else {
+                next[i] = j;
+            }
+        }
+        int res = next[l-1];
+        while (res > 0 && ((l - res) & k) != 0) {
+            res = next[res-1];
+        }
+        return (l - res - 1) / k +1;
+    }
+
 }

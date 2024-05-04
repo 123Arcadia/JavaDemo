@@ -96,5 +96,35 @@ public class preAndInBuildTree {
 
 
 
+    //-----------------------------------------------------
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+//        if (n == 0) return null;
+//        // 由preorder[0]找到inorder中的root的索引
+//        int leftSize = indexOf(inorder, preorder[0]);
+//        int[] pre1 = Arrays.copyOfRange(preorder, 1, 1 + leftSize);
+//        int[] in1 = Arrays.copyOfRange(preorder, 0 , leftSize);
+//        int[] pre2 = Arrays.copyOfRange(preorder, 1 + leftSize, n);
+//        int[] in2 = Arrays.copyOfRange(inorder, 1 + leftSize, n);
+//        TreeNode left = buildTree01(pre1, in1);
+//        TreeNode right = buildTree01(pre2, in2);
+//        return new TreeNode(preorder[0], left, right);
+        Map<Integer, Integer> idxMap = new HashMap<>();
+        for (int i : inorder) {
+            idxMap.put(inorder[i], i);
+        }
+        return dfsBuiTree(preorder, 0, n, inorder,0, n, idxMap);
+    }
+
+    private TreeNode dfsBuiTree(int[] preorder, int preL, int preR, int[] inorder, int inL, int inR, Map<Integer, Integer> idxMap) {
+        if (preL >= preR) return null;
+        int leftSize = idxMap.get(inorder[preL]) - inL;
+        TreeNode left = dfsBuiTree(preorder, preL + 1, preL + leftSize + 1, inorder, inL, inL + leftSize + 1, idxMap);
+        TreeNode right = dfsBuiTree(preorder, preL + leftSize + 1, preR, inorder, inL + leftSize + 1, inR, idxMap);
+        return new TreeNode(preorder[preL], left, right);
+
+    }
+
 
 }
