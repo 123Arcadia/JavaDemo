@@ -1,12 +1,33 @@
 package EnumTest;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
+/**
+ * 枚举的方法
+ */
 public enum Operation {
-    PLUS{ double eval(double x, double y) {return x+y;}},
-    MINUS{ double eval(double x, double y) {return x-y;}},
-    TIMES{ double eval(double x, double y) {return x*y;}},
-    DIVIDE{ double eval(double x, double y) {return x/y;}};
+    PLUS {
+        double eval(double x, double y) {
+            return x + y;
+        }
+    },
+    MINUS {
+        double eval(double x, double y) {
+            return x - y;
+        }
+    },
+    TIMES {
+        double eval(double x, double y) {
+            return x * y;
+        }
+    },
+    DIVIDE {
+        double eval(double x, double y) {
+            return x / y;
+        }
+    };
 
     abstract double eval(double x, double y);
 
@@ -29,4 +50,12 @@ public enum Operation {
         System.out.println(Operation.DIVIDE.name()); // DIVIDE
 
     }
+
+
+    @Test
+    public void test1() {
+
+
+    }
+
 }

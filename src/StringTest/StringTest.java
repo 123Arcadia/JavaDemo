@@ -118,14 +118,16 @@ public class StringTest {
         //127.0.0.1
         //127.0.0.1
         String ipString = address.getAddress().toString();
-        String idx0 = ipString;
-        String idx1 = ipString;
+        String idx0 = "";
+        String idx1 = "";
+        System.out.println("ipString = " + ipString);
+        //ipString = 127.0.0.1/127.0.0.1
         if(ipString.contains("/")){
             //---------------
             idx0 = ipString.split("/")[0];
             idx1 = ipString.split("/")[1];
             //---------------
-            ipString = ipString.split("/")[1];
+//            ipString = ipString.split("/")[1];
         }
         String[] split = ipString.split("/");
         /**
@@ -148,6 +150,10 @@ public class StringTest {
         //res = A_hormone_regulation-based_approach_for_distributed_and_online_scheduling_of_machines_and_automated_guided_vehicles.pdf
 
         System.out.println(Inet4Address.getLocalHost().getHostAddress());
+
+        HashMap<String, String> map = new HashMap<>();
+        map.remove("11");
+        System.out.println("map = " + map);
     }
 
     @Test
