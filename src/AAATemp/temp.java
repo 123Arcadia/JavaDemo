@@ -1,31 +1,33 @@
 package AAATemp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class temp {
 
     @Test
-    public void test01() {
-        Integer x = 2;
-        Long y = 2L;
-        Long z = 2L;
-        System.out.println(x.equals(y)); // falseå…ˆåˆ¤æ–­ç±»åž‹
-        System.out.println(x.intValue() == y.intValue()); // true
+    public void test02() {
+        //Ëæ»úÉú³Éyyyy/M/dd¸ñÊ½µÄÈÕÖ¾
+        Random near = new Random(2000);
+        Random month = new Random(10);
+        Random day = new Random(10);
 
-        for (int i = 0; i < 100; i++) {
-            if ((i & 1) == 1) { //å¦‚æžœæ˜¯åŸºæ•°
-                y += 1;
-            } else {
-                z += 2;
-            }
+        for (int i = 0; i < 10; i++) {
+
+            String date = String.valueOf(near.nextInt(2010, 2026) + "/" +
+                    month.nextInt(1, 13) + "/" +
+                    day.nextInt(1, 32));
+            System.out.println(date);
         }
+
+
+
     }
+
 
     @Test
     public void booleanTest() {
@@ -60,10 +62,12 @@ public class temp {
         System.out.println((double) 7 / 2);
         System.out.println((double) 135 / 2);
         System.out.println(getMethodName("zcw"));
+
+
     }
 
     /**
-     * æŠŠä¸€ä¸ªå­—ç¬¦ä¸²çš„ç¬¬ä¸€ä¸ªå­—æ¯å¤§å†™ã€æ•ˆçŽ‡æ˜¯æœ€é«˜çš„ã€
+     * °ÑÒ»¸ö×Ö·û´®µÄµÚÒ»¸ö×ÖÄ¸´óÐ´¡¢Ð§ÂÊÊÇ×î¸ßµÄ¡¢
      */
     private String getMethodName(String fildeName) {
         byte[] items = fildeName.getBytes();
@@ -78,8 +82,10 @@ public class temp {
         String num = "[0.2][0.2][0.2]";
         String param = num.substring(1, num.length() - 1);
         String[] paramlist = param.split("]\\[");
-        System.out.println("paramlist = " + Arrays.stream(paramlist).toList());
+        System.out.println("paramlist = " + Arrays.toString(paramlist));
         System.out.println(Arrays.toString(paramlist));
+
+        Object o = new Object();
 
 //        Map<Integer, JSONArray> StorageParamSet = new HashMap<Integer, JSONArray>();
 //        for (int i = 0; i < paramlist.length; i++) {
@@ -96,18 +102,61 @@ public class temp {
 
 
     }
+
+    /**
+     * °ÑÒ»¸ö×Ö·û´®µÄµÚÒ»¸ö×ÖÄ¸´óÐ´¡¢Ð§ÂÊÊÇ×î¸ßµÄ
+     */
+    @Test
+    public void test01() {
+        String res = getMethodName("zcw");
+    }
+
+    @Test
+    public void printStringBuider() {
+        List<String> list = new ArrayList<>(Arrays.asList("zzcw", "123", "4532"));
+        for (String s : list) {
+            switch (s) {
+                case "zzcw":
+                    System.out.println("1 = " + s);
+                    break;
+                case "123":
+                    System.out.println("2 = " + s);
+                    break;
+                case "4532":
+                    System.out.println("3 = " + s);
+                    break;
+                default:
+                    break;
+            }
+            System.out.print("=_");
+        }
+
+    }
+
+
+
+}
+
+//@Data
+@ToString
+class Person extends Teach {
+    private String name;
+    private Integer age;
+
+    public Integer newAge = 1;
+
+
+    public Person(String name, Integer age) {
+        super(name, age);
+    }
 }
 
 @Data
 @ToString
-class Person {
+@AllArgsConstructor
+class Teach {
     private String name;
-    private Integer age;
-
-    public Person(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
+    public Integer age;
 
     public String getName() {
         return name;
