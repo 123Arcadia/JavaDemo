@@ -3,21 +3,10 @@ package AlgorithmNotes;
 public class fastPow {
 
     // 定义一个方法进行快速幂运算
-    public static long fastPow(long a, int b) {
-        if (b == 0) {
-            return 1;
-        }
-        if (b == 1) {
-            return a;
-        }
-        long half = fastPow(a, b / 2);
-        if (b % 2 == 0) {
-            // 如果b是偶数，则结果为 half 自乘
-            return half * half;
-        } else {
-            // 如果b是奇数，则结果为 a 乘以 half 的平方
-            return a * half * half;
-        }
+    private static double fastPow(double x, int n) {
+        if (n == 0) return 1;
+        double res = fastPow(x, n/2);
+        return n % 2 == 0 ? res * res : res *res * x;
     }
 
     public static void main(String[] args) {
@@ -26,5 +15,8 @@ public class fastPow {
         System.out.println("Result: " + fastPow(base, exponent)); // 输出结果
         double res = Math.pow(2,3);
     }
+
+
+
 
 }
