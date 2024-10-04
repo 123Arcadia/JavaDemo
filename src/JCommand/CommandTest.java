@@ -1,33 +1,31 @@
 package JCommand;
 
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-@Slf4j
 public class CommandTest {
 
 //    private final JCommander jcommander;
-    public static final Logger logger = LoggerFactory.getLogger(CommandTest.class);
+//    public static final Logger logger = LoggerFactory.getLogger(CommandTest.class);
 
-    public static void main(String[] args) {
-        execCommand("echo \"Hello, World!\" > src/JCommand/JcTest.txt");
+//    public static void main(String[] args) {
+//        execCommand("echo \"Hello, World!\" > src/JCommand/JcTest.txt");
 //        execCommand("echo \"Hello, World!\"");
-        tets_ls();
-    }
+//        tets_ls();
+//    }
 
     /**
      * 执行并返回状态码
      *
-     * @param cmd
-     * @return
      */
-    public static Boolean execCommand(String cmd) {
+    @Test
+    public void execCommand() {
 
-
+        String cmd = "echo \"Hello, World!\" > src/JCommand/JcTest.txt";
         BufferedReader br = null;
         try {
             boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
@@ -46,14 +44,18 @@ public class CommandTest {
                 while ((line = br.readLine()) != null) {
                     sb.append(line).append("\n");
                 }
-                logger.error("shell 执行失败: {}", sb);
-                return false;
+                System.out.println("shell 执行失败: " + sb.toString());
+//                logger.error("shell 执行失败: {}", sb);
+                throw new RuntimeException("shell 执行失败: " +sb.toString());
             }
-            logger.info("cmd = {}, returnCode = {}", cmd, returnCode);
-            return true;
+            System.out.printf("cmd = %s, returnCode = %s\n", cmd, returnCode);
+//            logger.info("cmd = {}, returnCode = {}", cmd, returnCode);
+//            return true;
+            Assert.assertEquals(returnCode, 0);
+            System.out.println("shell successfully!: " +cmd.toString() +", returnCode=" +returnCode);
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+//            e.printStackTrace();
+            System.err.println(ExceptionUtils.getStackTrace(e));
         } finally {
             if (br != null) {
                 try {
@@ -65,8 +67,8 @@ public class CommandTest {
         }
     }
 
-
-    public static void tets_ls() {
+    @Test
+    public void test_ls() {
         try {
             Process lsProcess = Runtime.getRuntime().exec(new String[]{"cmd","/c","ls"});
 
